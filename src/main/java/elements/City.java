@@ -15,7 +15,7 @@ public class City {
     private int tourists;
     private int money;
 
-    public City(String name){
+    public City(String name) {
         this.name = name;
         this.buildings = new ArrayList<>();
         this.population = 0;
@@ -24,7 +24,7 @@ public class City {
     }
 
     public void addBuilding(Building building) throws NotEnoughMoneyException {
-        if(money < building.getPrice()){
+        if (money < building.getPrice()) {
             throw new NotEnoughMoneyException("Not enough money");
         }
 
@@ -32,5 +32,15 @@ public class City {
         population += building.getBasePopulation();
         tourists += building.getBaseTourists();
         money += building.getBaseIncome();
+    }
+
+    public void endTurn() {
+        buildings.forEach(
+                building -> {
+                    population += building.getTurnPopulation();
+                    tourists += building.getTurnTourists();
+                    money += building.getTurnIncome();
+                }
+        );
     }
 }
