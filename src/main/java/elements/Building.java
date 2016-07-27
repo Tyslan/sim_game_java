@@ -25,6 +25,38 @@ public class Building {
         this.price = price;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getBasePopulation() {
+        return basePopulation;
+    }
+
+    public int getBaseTourists() {
+        return baseTourists;
+    }
+
+    public int getBaseIncome() {
+        return baseIncome;
+    }
+
+    public int getTurnPopulation() {
+        return turnPopulation;
+    }
+
+    public int getTurnTourists() {
+        return turnTourists;
+    }
+
+    public int getTurnIncome() {
+        return turnIncome;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
     @Override
     public String toString() {
         return name;
