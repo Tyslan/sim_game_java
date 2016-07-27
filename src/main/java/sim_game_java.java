@@ -2,7 +2,7 @@
  * Created by Lorenz on 27/07/2016.
  */
 
-import db.DBConnection;
+import db.DbConnection;
 import elements.Building;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -17,7 +17,7 @@ public class sim_game_java extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        List<Building> buildings = DBConnection.getAllBuildings();
+        List<Building> buildings = DbConnection.getAllBuildings();
         buildings.forEach(
                 System.out::println
         );
