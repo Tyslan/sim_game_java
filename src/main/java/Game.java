@@ -14,6 +14,6 @@ public class Game {
     }
 
     public void EndTurn(){
-        cities.forEach( city -> city.endTurn());
+        cities.forEach(City::endTurn);
     }
 }

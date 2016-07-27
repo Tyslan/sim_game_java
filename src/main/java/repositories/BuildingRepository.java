@@ -25,7 +25,7 @@ public class BuildingRepository {
     public List<Building> getAllBuildings(){
         final List<Building> result = new ArrayList<>();
         buildings.values().forEach(
-                building -> result.add(building)
+                result::add
         );
         return result;
     }

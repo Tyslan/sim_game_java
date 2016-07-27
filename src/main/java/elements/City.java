@@ -25,7 +25,7 @@ public class City {
 
     public void addBuilding(Building building) throws NotEnoughMoneyException {
         if (money < building.getPrice()) {
-            throw new NotEnoughMoneyException("Not enough money");
+            throw new NotEnoughMoneyException();
         }
 
         buildings.add(building);
