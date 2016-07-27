@@ -1,6 +1,6 @@
-package repositories;
+package domain.repositories;
 
-import elements.Building;
+import domain.elements.Building;
 import org.bson.types.ObjectId;
 
 import java.util.ArrayList;

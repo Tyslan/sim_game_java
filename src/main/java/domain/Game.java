@@ -1,4 +1,6 @@
-import elements.City;
+package domain;
+
+import domain.elements.City;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package exceptions;
+package domain.exceptions;
 
 /**
  * Created by Lorenz on 27/07/2016.

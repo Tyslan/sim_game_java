@@ -2,8 +2,8 @@
  * Created by Lorenz on 27/07/2016.
  */
 
-import db.DbConnection;
-import elements.Building;
+import domain.db.DbConnection;
+import domain.elements.Building;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import org.bson.types.ObjectId;

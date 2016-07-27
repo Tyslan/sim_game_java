@@ -1,6 +1,6 @@
-package elements;
+package domain.elements;
 
-import exceptions.NotEnoughMoneyException;
+import domain.exceptions.NotEnoughMoneyException;
 
 import java.util.ArrayList;
 import java.util.List;

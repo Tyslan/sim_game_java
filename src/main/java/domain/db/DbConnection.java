@@ -1,11 +1,10 @@
-package db;
+package domain.db;
 
 import com.mongodb.Block;
 import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoDatabase;
-import elements.Building;
+import domain.elements.Building;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
@@ -18,7 +17,7 @@ import java.util.Map;
 public class DbConnection {
 //    private static MongoClientURI uri  = new MongoClientURI(DbConfig.MONGO_URI);
 //    private static MongoClient mongoClient = new MongoClient(uri);
-//    private static MongoDatabase db = mongoClient.getDatabase(uri.getDatabase());
+//    private static MongoDatabase domain.db = mongoClient.getDatabase(uri.getDatabase());
 
     private static MongoClient mongoClient = new MongoClient();
     private static MongoDatabase db = mongoClient.getDatabase("sim-game");

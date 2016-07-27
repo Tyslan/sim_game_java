@@ -1,4 +1,4 @@
-package elements;
+package domain.elements;
 
 import org.bson.types.ObjectId;
 
