@@ -1,4 +1,4 @@
-Sim Game
+# Sim Game
 
 This a sim game I designed for my brothers Bachelor's thesis for his teachers training course.
 
