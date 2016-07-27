@@ -6,8 +6,9 @@ import db.DbConnection;
 import elements.Building;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import org.bson.types.ObjectId;
 
-import java.util.List;
+import java.util.Map;
 
 public class sim_game_java extends Application {
 
@@ -17,8 +18,9 @@ public class sim_game_java extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        List<Building> buildings = DbConnection.getAllBuildings();
-        buildings.forEach(
+        System.out.println("Getting all buildings");
+        Map<ObjectId, Building> buildings = DbConnection.getAllBuildings();
+        buildings.values().forEach(
                 System.out::println
         );
     }

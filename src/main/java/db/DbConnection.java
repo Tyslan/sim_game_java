@@ -7,9 +7,10 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoDatabase;
 import elements.Building;
 import org.bson.Document;
+import org.bson.types.ObjectId;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Lorenz on 27/07/2016.
@@ -22,13 +23,14 @@ public class DbConnection {
     private static MongoClient mongoClient = new MongoClient();
     private static MongoDatabase db = mongoClient.getDatabase("sim-game");
 
-    public static List<Building> getAllBuildings(){
+    public static Map<ObjectId, Building> getAllBuildings(){
         FindIterable<Document> iterable = db.getCollection("buildings").find();
-        final List<Building> buildings = new ArrayList<>();
+        final Map<ObjectId, Building> buildings = new HashMap<>();
         iterable.forEach(new Block<Document>() {
             public void apply(final Document document) {
+                ObjectId id = document.getObjectId("_id");
                 Building building = parseDocumentToBuilding(document);
-                buildings.add(building);
+                buildings.put(id, building);
             }
         });
 
@@ -36,6 +38,7 @@ public class DbConnection {
     }
 
     private static Building parseDocumentToBuilding(Document document){
+        ObjectId id = document.getObjectId("_id");
         String name = document.getString("name");
         int basePopulation = document.getInteger("basePopulation");
         int baseTourists = document.getInteger("baseTourists");
@@ -45,7 +48,7 @@ public class DbConnection {
         int turnIncome = document.getInteger("turnIncome");
         int price = document.getInteger("price");
 
-        return new Building(name, basePopulation, baseTourists, baseIncome,
+        return new Building(id, name, basePopulation, baseTourists, baseIncome,
                 turnPopulation, turnTourists, turnIncome, price);
     }
 }

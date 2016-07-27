@@ -1,9 +1,12 @@
 package elements;
 
+import org.bson.types.ObjectId;
+
 /**
  * Created by Lorenz on 27/07/2016.
  */
 public class Building {
+    private ObjectId id;
     private String name;
     private int basePopulation;
     private int baseTourists;
@@ -13,8 +16,9 @@ public class Building {
     private int turnIncome;
     private int price;
 
-    public Building(String name, int basePopulation, int baseTourists, int baseIncome, int turnPopulation,
+    public Building(ObjectId id, String name, int basePopulation, int baseTourists, int baseIncome, int turnPopulation,
                     int turnTourists, int turnIncome, int price) {
+        this.id = id;
         this.name = name;
         this.basePopulation = basePopulation;
         this.baseTourists = baseTourists;
@@ -23,6 +27,10 @@ public class Building {
         this.turnTourists = turnTourists;
         this.turnIncome = turnIncome;
         this.price = price;
+    }
+
+    public ObjectId getId(){
+        return id;
     }
 
     public String getName() {
