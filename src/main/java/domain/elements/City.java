@@ -29,8 +29,32 @@ public class City extends Observable {
         this.money = 500000;
     }
 
+    public String getName(){
+        return name;
+    }
+
+    public int getPopulation() {
+        return population;
+    }
+
+    public int getTourists() {
+        return tourists;
+    }
+
     public int getMoney() {
         return money;
+    }
+
+    public int getIncomeNextTurn(){
+        int result = 0;
+
+        for(Building building: buildings){
+            int popIncome = population * POPULATION_INCOME;
+            int touristIncome = tourists * TOURIST_INCOME;
+            result += building.getTurnIncome() + popIncome + touristIncome;
+        }
+
+        return result;
     }
 
     public void addBuilding(Building building) throws NotEnoughMoneyException {

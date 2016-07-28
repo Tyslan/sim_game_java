@@ -3,6 +3,7 @@
  */
 
 import domain.controllers.GameController;
+import domain.db.DbConnection;
 import gui.MainScreenFrame;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -17,6 +18,7 @@ public class StartUp extends Application {
 
     @Override
     public void start(Stage stage) {
+        DbConnection.dropCities();
 
         GameController gameController = new GameController();
         Scene scene = new Scene(new MainScreenFrame(gameController));

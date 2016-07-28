@@ -6,6 +6,7 @@ import com.mongodb.MongoClientURI;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoDatabase;
 import domain.elements.Building;
+import domain.elements.City;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
@@ -19,7 +20,7 @@ import java.util.Map;
 public class DbConnection {
     private static final MongoClientURI uri = new MongoClientURI(DbConfig.MONGO_URI);
     private static final MongoClient mongoClient = new MongoClient(uri);
-    private static final MongoDatabase db = mongoClient.getDatabase(uri.getDatabase());
+    static final MongoDatabase db = mongoClient.getDatabase(uri.getDatabase());
 
 //    private static MongoClient mongoClient = new MongoClient();
 //    private static MongoDatabase db = mongoClient.getDatabase("sim-game");
@@ -36,6 +37,20 @@ public class DbConnection {
         });
 
         return buildings;
+    }
+
+    public static void dropCities(){
+        db.getCollection("cities").drop();
+    }
+
+    public static void persistCity(City city){
+        Runnable runnable = new CityPersistThread(city);
+        runnable.run();
+    }
+
+    public static void updateCity(City city){
+        Runnable runnable = new CityUpdateThread(city);
+        runnable.run();
     }
 
     private static Building parseDocumentToBuilding(Document document) {
