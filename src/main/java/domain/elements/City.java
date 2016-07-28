@@ -11,8 +11,8 @@ import java.util.Observable;
  */
 @SuppressWarnings("DefaultFileTemplate")
 public class City extends Observable {
-    private static final int POPULATION_INCOME = 700;
-    private static final int TOURIST_INCOME = 400;
+    private static final int POPULATION_INCOME = 100;
+    private static final int TOURIST_INCOME = 50;
 
 
     private final String name;
