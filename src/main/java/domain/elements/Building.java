@@ -1,20 +1,21 @@
-package elements;
+package domain.elements;
 
 import org.bson.types.ObjectId;
 
 /**
  * Created by Lorenz on 27/07/2016.
  */
+@SuppressWarnings("DefaultFileTemplate")
 public class Building {
-    private ObjectId id;
-    private String name;
-    private int basePopulation;
-    private int baseTourists;
-    private int baseIncome;
-    private int turnPopulation;
-    private int turnTourists;
-    private int turnIncome;
-    private int price;
+    private final ObjectId id;
+    private final String name;
+    private final int basePopulation;
+    private final int baseTourists;
+    private final int baseIncome;
+    private final int turnPopulation;
+    private final int turnTourists;
+    private final int turnIncome;
+    private final int price;
 
     public Building(ObjectId id, String name, int basePopulation, int baseTourists, int baseIncome, int turnPopulation,
                     int turnTourists, int turnIncome, int price) {
@@ -29,7 +30,7 @@ public class Building {
         this.price = price;
     }
 
-    public ObjectId getId(){
+    public ObjectId getId() {
         return id;
     }
 

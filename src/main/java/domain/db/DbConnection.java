@@ -1,11 +1,12 @@
-package db;
+package domain.db;
 
 import com.mongodb.Block;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoDatabase;
-import elements.Building;
+import domain.elements.Building;
+import domain.elements.City;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
@@ -15,15 +16,16 @@ import java.util.Map;
 /**
  * Created by Lorenz on 27/07/2016.
  */
+@SuppressWarnings("DefaultFileTemplate")
 public class DbConnection {
-//    private static MongoClientURI uri  = new MongoClientURI(DbConfig.MONGO_URI);
-//    private static MongoClient mongoClient = new MongoClient(uri);
-//    private static MongoDatabase db = mongoClient.getDatabase(uri.getDatabase());
+    private static final MongoClientURI uri = new MongoClientURI(DbConfig.MONGO_URI);
+    private static final MongoClient mongoClient = new MongoClient(uri);
+    static final MongoDatabase db = mongoClient.getDatabase(uri.getDatabase());
 
-    private static MongoClient mongoClient = new MongoClient();
-    private static MongoDatabase db = mongoClient.getDatabase("sim-game");
+//    private static MongoClient mongoClient = new MongoClient();
+//    private static MongoDatabase db = mongoClient.getDatabase("sim-game");
 
-    public static Map<ObjectId, Building> getAllBuildings(){
+    public static Map<ObjectId, Building> getAllBuildings() {
         FindIterable<Document> iterable = db.getCollection("buildings").find();
         final Map<ObjectId, Building> buildings = new HashMap<>();
         iterable.forEach(new Block<Document>() {
@@ -37,7 +39,21 @@ public class DbConnection {
         return buildings;
     }
 
-    private static Building parseDocumentToBuilding(Document document){
+    public static void dropCities(){
+        db.getCollection("cities").drop();
+    }
+
+    public static void persistCity(City city){
+        Runnable runnable = new CityPersistThread(city);
+        runnable.run();
+    }
+
+    public static void updateCity(City city){
+        Runnable runnable = new CityUpdateThread(city);
+        runnable.run();
+    }
+
+    private static Building parseDocumentToBuilding(Document document) {
         ObjectId id = document.getObjectId("_id");
         String name = document.getString("name");
         int basePopulation = document.getInteger("basePopulation");
