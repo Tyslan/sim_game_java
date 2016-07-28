@@ -29,7 +29,7 @@ public class Building {
         this.price = price;
     }
 
-    public ObjectId getId(){
+    public ObjectId getId() {
         return id;
     }
 

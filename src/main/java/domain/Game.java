@@ -11,11 +11,19 @@ import java.util.List;
 public class Game {
     private List<City> cities;
 
-    public Game(){
+    public Game() {
         cities = new ArrayList<>();
     }
 
-    public void EndTurn(){
+    public void addCity(City city) {
+        cities.add(city);
+    }
+
+    public List<City> getCities() {
+        return cities;
+    }
+
+    public void endTurn() {
         cities.forEach(City::endTurn);
     }
 }
