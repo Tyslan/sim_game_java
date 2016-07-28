@@ -40,7 +40,7 @@ public class DbConnection {
     }
 
     public static void dropCities(){
-        db.getCollection("cities").drop();
+        db.getCollection("cities").deleteMany(new Document());
     }
 
     public static void persistCity(City city){
