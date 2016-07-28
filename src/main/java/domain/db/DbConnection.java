@@ -15,10 +15,11 @@ import java.util.Map;
 /**
  * Created by Lorenz on 27/07/2016.
  */
+@SuppressWarnings("DefaultFileTemplate")
 public class DbConnection {
-    private static MongoClientURI uri = new MongoClientURI(DbConfig.MONGO_URI);
-    private static MongoClient mongoClient = new MongoClient(uri);
-    private static MongoDatabase db = mongoClient.getDatabase(uri.getDatabase());
+    private static final MongoClientURI uri = new MongoClientURI(DbConfig.MONGO_URI);
+    private static final MongoClient mongoClient = new MongoClient(uri);
+    private static final MongoDatabase db = mongoClient.getDatabase(uri.getDatabase());
 
 //    private static MongoClient mongoClient = new MongoClient();
 //    private static MongoDatabase db = mongoClient.getDatabase("sim-game");

@@ -11,8 +11,9 @@ import java.util.Map;
 /**
  * Created by Lorenz on 27/07/2016.
  */
+@SuppressWarnings("DefaultFileTemplate")
 public class BuildingRepository {
-    private Map<ObjectId, Building> buildings;
+    private final Map<ObjectId, Building> buildings;
 
     public BuildingRepository() {
         buildings = DbConnection.getAllBuildings();

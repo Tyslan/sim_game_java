@@ -22,6 +22,7 @@ import java.util.Observer;
 /**
  * Created by Lorenz on 28/07/2016.
  */
+@SuppressWarnings("DefaultFileTemplate")
 public class CityTabFrame extends GridPane implements Observer {
     @FXML
     private Button btnSendRight;
@@ -34,7 +35,7 @@ public class CityTabFrame extends GridPane implements Observer {
     @FXML
     ListView<Building> listBuild;
 
-    private CityController cityController;
+    private final CityController cityController;
 
     public CityTabFrame(City city) {
         cityController = new CityController(city);

@@ -11,13 +11,14 @@ import org.bson.types.ObjectId;
 /**
  * Created by Lorenz on 28/07/2016.
  */
+@SuppressWarnings("DefaultFileTemplate")
 public class CityController {
     private static final BuildingRepository buildingRepository = new BuildingRepository();
 
-    private City city;
+    private final City city;
 
-    private ObservableList<Building> possiblebuildings;
-    private ObservableList<Building> buildings;
+    private final ObservableList<Building> possiblebuildings;
+    private final ObservableList<Building> buildings;
 
     public CityController(City city) {
         this.city = city;

@@ -9,10 +9,11 @@ import javafx.collections.ObservableList;
 /**
  * Created by Lorenz on 28/07/2016.
  */
+@SuppressWarnings("DefaultFileTemplate")
 public class GameController {
-    private Game game;
+    private final Game game;
 
-    private ObservableList<City> cities;
+    private final ObservableList<City> cities;
 
     public GameController() {
         game = new Game();

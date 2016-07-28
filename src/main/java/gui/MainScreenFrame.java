@@ -17,6 +17,7 @@ import java.util.Optional;
 /**
  * Created by Lorenz on 28/07/2016.
  */
+@SuppressWarnings("DefaultFileTemplate")
 public class MainScreenFrame extends BorderPane {
     @FXML
     private Button btnAddCity;

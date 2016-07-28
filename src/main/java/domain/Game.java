@@ -8,8 +8,9 @@ import java.util.List;
 /**
  * Created by Lorenz on 27/07/2016.
  */
+@SuppressWarnings("DefaultFileTemplate")
 public class Game {
-    private List<City> cities;
+    private final List<City> cities;
 
     public Game() {
         cities = new ArrayList<>();

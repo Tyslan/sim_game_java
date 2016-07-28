@@ -9,13 +9,14 @@ import java.util.Observable;
 /**
  * Created by Lorenz on 27/07/2016.
  */
+@SuppressWarnings("DefaultFileTemplate")
 public class City extends Observable {
     private static final int POPULATION_INCOME = 700;
     private static final int TOURIST_INCOME = 400;
 
 
-    private String name;
-    private List<Building> buildings;
+    private final String name;
+    private final List<Building> buildings;
     private int population;
     private int tourists;
     private int money;
